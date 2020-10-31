@@ -22,8 +22,11 @@ export default function FooterView() {
 
 const styles = StyleSheet.create({
     container:{
+        borderTopWidth:1,
+        borderTopColor:"#ccc",
+        paddingTop:5,
         flexDirection:"row",
-        justifyContent:"space-between",
+        justifyContent:"space-around",
         backgroundColor:"white"
     }
 })
