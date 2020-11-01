@@ -1,29 +1,45 @@
 import React from 'react'
-import { StyleSheet, Text, View,ScrollView } from 'react-native'
+import { StyleSheet, Text, View,ScrollView, FlatList,Button } from 'react-native'
 import CardBottom from "./CardBottom"
 import Head from './CardHead'
 import CardBody from './CardBody'
-export default function Postcard() {
+export default function Postcard({data}) {
     const like = "likes this"
     const comment = "commented on this"
+    const curious = "is curious about this"
+     const click = <Button title="Click" onPress={()=>console.log("100000")}/>
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.container}>
-            <Head name="Daniel Abrahams" like={like} />
-                <CardBody />
-            <CardBottom />
+        <View style={styles.backStyle}>
+        <FlatList data={data} 
+        keyExtractor={item=>{item.name}}
+        renderItem={({item})=>(
+                item.like?<View style={styles.container}>
+                        <Head name={item.name} emotion={like} />
+                            <CardBody post={item.post} 
+                                profile = {item.profile}
+                                likes={item.likes} 
+                                comments={item.comments} />
+                        <CardBottom />
+                    </View>:item.curious? <View style={styles.container}>
+                        <Head name={item.name} emotion={curious} />
+                            <CardBody post={item.post} 
+                                profile = {item.profile}
+                                likes={item.likes} 
+                                comments={item.comments} />
+                        <CardBottom />
+                    </View>:item.comment ? <View style={styles.container}>
+                        <Head name={item.name} emotion={comment} />
+                            <CardBody post={item.post} 
+                                profile = {item.profile}
+                                likes={item.likes} 
+                                comments={item.comments}
+                            />
+                        <CardBottom />
+                    </View>:null)
+        } />
+        
+        
         </View>
-        <View style={styles.container}>
-            <Head name="Abraham Khan" like={comment} />
-                <CardBody />
-            <CardBottom />
-        </View>
-        <View style={styles.container}>
-            <Head name="Akram Raza" like={comment} />
-                <CardBody />
-            <CardBottom />
-        </View>
-        </ScrollView>
     )
 }
 
@@ -33,5 +49,9 @@ const styles = StyleSheet.create({
         borderColor:"#ccc",
         borderTopWidth:1,
         borderBottomWidth:1,
+        backgroundColor:"white"
+    },
+    backStyle:{
+        backgroundColor:"#dedede",
     }
 })

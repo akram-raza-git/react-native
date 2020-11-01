@@ -6,34 +6,57 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
 export default function CardBottom() {
+    const IconColor = "black"
     return (
         <View style={styles.container}>
             <View style={styles.element}>
-                <AntDesign name="like2" size={30} color="white" />
-                <Text>Like</Text>
+                <AntDesign 
+                    onPress={()=>console.log("Liked")}
+                    name="like2" 
+                    size={22} 
+                    color={IconColor} />
+                <Text style={styles.textStyle}>Like</Text>
             </View>
             <View style={styles.element}>
-                <MaterialIcons name="comment" size={30} color="white" />
-                <Text>Comment</Text>
+                <MaterialIcons 
+                    name="comment" 
+                    onPress={()=>console.log("Comented")}
+                    size={22} 
+                    color={IconColor} />
+                <Text style={styles.textStyle}>Comment</Text>
             </View>
             <View style={styles.element}>
-                <FontAwesome name="share" size={24} color="black" />
-                <Text>Share</Text>
+                <FontAwesome 
+                    name="share" 
+                    size={22} 
+                    onPress={()=>console.log("Shared")}
+                    color={IconColor} />
+                <Text style={styles.textStyle}>Share</Text>
             </View>
             <View style={styles.element}>
-                <Feather name="send" size={24} color="black" />
-                <Text>Send</Text>
+                <Feather 
+                    name="send" 
+                    size={22} 
+                    onPress={()=>console.log("Send")}
+                    color={IconColor} />
+                <Text style={styles.textStyle}>Send</Text>
             </View>
             
         </View>
     )
 }
 const styles = StyleSheet.create({
-    container:{flexDirection:"row",
+    container:{
+        flexDirection:"row",
     justifyContent:"space-around",
     paddingVertical:5,
+    borderTopColor:"#ccc",
+    borderTopWidth:1,
     },
     element:{
-        alignItems:"center"
-    }
+        alignItems:"center",
+    },
+    textStyle:{
+        // paddingVertical:
+    },
 })

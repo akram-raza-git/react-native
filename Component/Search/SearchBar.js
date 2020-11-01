@@ -7,13 +7,14 @@ import { Entypo } from '@expo/vector-icons';
 export default function home({value,inputReturn,submitItem}) {
     return (<View style={styles.outerSearch}>
                 <Image 
+                    onPress={()=>console.log("Profile")}
                     source={require("../../assets/download.png")}
                     style={styles.profileImage}
                     /> 
                 <View style={styles.searchBar} >
                     <Feather 
                         name="search" 
-                        size={30} 
+                        size={25} 
                         style={styles.feature}
                         color="black" />
                     <TextInput 
@@ -26,14 +27,16 @@ export default function home({value,inputReturn,submitItem}) {
                         placeholder="Search"
                         />
                     <FontAwesome 
+                        onPress={()=>console.log("QR Code")}
                         style={styles.barCode}
-                        name="qrcode" size={30} 
+                        name="qrcode" size={27} 
                         color="black" />
                 </View>
                     <Entypo 
                         style={styles.chat}
+                        onPress={()=>console.log("Chat Pressed")}
                         name="chat" 
-                        size={30} 
+                        size={27} 
                         color="white" />
         </View>
     )
@@ -41,18 +44,20 @@ export default function home({value,inputReturn,submitItem}) {
 const styles = StyleSheet.create({
     searchBar:{
         backgroundColor:"white",
-        margin:10,
         flexDirection:"row",
-        height:40,
-        flex:1
+        height:30,
+        flex:1,
+        borderRadius:3.2,
+        alignSelf:"center",
+        opacity:.95,
     },
     feature:{
         alignSelf:"center",
-        marginHorizontal:10,
+        marginHorizontal:5,
     },
     input:{
         flex:1,
-        fontSize:25,
+        fontSize:20,
         paddingHorizontal:5,
     },
     barCode:{
@@ -61,7 +66,7 @@ const styles = StyleSheet.create({
     },
     outerSearch:{
         backgroundColor:"#0073B1",
-        height:60,
+        height:41,
         flexDirection:"row"
     },
     chat:{
@@ -69,9 +74,9 @@ const styles = StyleSheet.create({
         alignSelf:"center",
     },
     profileImage:{
-        margin:10,
-        width:40,
-        height:40,
+        marginHorizontal:5,
+        width:35,
+        height:35,
         borderWidth:2,
         borderColor:"white",
         borderRadius:50,
