@@ -1,16 +1,18 @@
 import React from 'react'
-import { StyleSheet, TextInput, Text, View ,Image} from 'react-native'
+import { StyleSheet, TextInput, Text, View ,Image, TouchableOpacity} from 'react-native'
 import { Feather } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
 export default function home({value,inputReturn,submitItem}) {
     return (<View style={styles.outerSearch}>
+                <TouchableOpacity onPress={()=>console.log("Profile pressed")}>
                 <Image 
                     onPress={()=>console.log("Profile")}
                     source={require("../../assets/download.png")}
                     style={styles.profileImage}
                     /> 
+                </TouchableOpacity>
                 <View style={styles.searchBar} >
                     <Feather 
                         name="search" 
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
         alignSelf:"center",
     },
     profileImage:{
+        marginTop:2,
         marginHorizontal:5,
         width:35,
         height:35,

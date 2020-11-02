@@ -1,9 +1,14 @@
-import React from 'react'
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import React,{useState} from 'react'
+import { StyleSheet, Text, View, FlatList,Image, Dimensions } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
-export default function CardBody({post,likes,comments,profile}) {
+export default function CardBody({post,likes,comments,profile,image}) {
+
+    const [More,setMore] = useState(false)
+      function truncate(str,n) {
+        return str?.length>n?str.substr(0,n-1)+"...":str;
+    }
     return (
         <View style={styles.container}>
         <View style={styles.profileStyle}>
@@ -13,22 +18,26 @@ export default function CardBody({post,likes,comments,profile}) {
                     style={styles.profileIcon}
                     color="black" />
             <View style={styles.listStyle}>
-                <FlatList data={profile}
-                keyExtractor={item=>item.name} 
-                renderItem={({item})=>
+            
+                {/* <FlatList data={profile}
+                    keyExtractor={(item)=>{item._id}} 
+                    renderItem={({item})=> */}
                 <View>
-                    
                     <Text 
                         style={{fontWeight:"bold",fontSize:15}} 
-                        onPress={()=>console.log(item.name)}>{item.name}</Text>
-                    <Text style={styles.profileText}>{item.content}</Text>
-                    <Text style={styles.profileText}>{item.duration}</Text>
+                        onPress={()=>console.log(profile[0])}>{profile[0]}</Text>
+                    <Text style={styles.profileText}>{profile[1]}</Text>
+                    <Text style={styles.profileText}>{profile[2]}</Text>
                 </View>
-                } 
-                />
+              {/*  } 
+                /> */}
             </View>
         </View>
-            <Text style={styles.postStyle}>{post}</Text>
+            {post && More?<Text style={styles.postStyle}>{post}</Text>:
+                <Text>{truncate(post,135)}<Text style={{color:"#636363"}} 
+                                onPress={()=>setMore(true)}>see more </Text></Text>}
+                          
+                {image?<Image style={styles.postImage}source={require('../../../assets/CardImg/pexelg.jpg')} />:null}
                
             <View style={styles.emoStyle}>
             <View style={{flexDirection:"row",alignItems:"center"}}>
@@ -80,5 +89,10 @@ const styles = StyleSheet.create({
     },
     listStyle:{
         paddingLeft:10,
+    },
+    postImage:{
+        height:500,
+        width:368
+
     }
 })
