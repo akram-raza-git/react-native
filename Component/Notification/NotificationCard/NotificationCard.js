@@ -16,10 +16,13 @@ import { FontAwesome } from '@expo/vector-icons';
 export default function NotificationCard({data}) {
   
     return (
-       <ScrollView showsVerticalScrollIndicator={false} >
+    //    <ScrollView showsVerticalScrollIndicator={false}>
        <View style={{ paddingBottom:50}}>
-           {data.map((item)=>item.heading?
-           <View key={item.key} style={styles.container}>
+       <FlatList 
+           data={data}
+           keyExtractor={(item)=>item.key}
+           renderItem={({item})=>item.heading?
+           <View  style={styles.container}>
                 <Image style= {styles.image} source={item.image}/>
                     <View>
                         <Text style={styles.text}> 
@@ -32,7 +35,7 @@ export default function NotificationCard({data}) {
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
             </View>:item.parah?
-            <View style={styles.container} key={item.key}>
+            <View style={styles.container} >
                     <FontAwesome name="newspaper-o" size={40} color="#537eb8" />
                     <View>
                     <Text style={styles.text}>{item.parah}</Text>
@@ -42,21 +45,23 @@ export default function NotificationCard({data}) {
                         <Entypo name="dots-three-vertical" size={14} color="#8f8f8f" />
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
-            </View>:item.buttonis?
-            <View style={styles.container} key={item.key}>
+            </View>:item.buttonIs?
+            <View style={styles.container}>
                     <Image style={[styles.image,{borderRadius:50}]} source={item.image} />
-                    <View><Text style={[styles.text,{paddingTop:10}]}>{item.beforeHead}
-                    <Text style={styles.heading}>{item.heading}</Text></Text>
-                    <TouchableOpacity >
-                        <Text style={styles.button}>{item.buttonis}</Text>
-                    </TouchableOpacity>
+                    <View>
+                        <Text style={[styles.text,{paddingTop:10}]}>{item.beforeHead}
+                        <Text style={styles.heading}>{item.view}</Text></Text>
+                        
+                        <TouchableOpacity>
+                            <Text style={styles.button}>SEE ALL VIEWS</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.rightIcon}>
                         <Entypo name="dots-three-vertical" size={14} color="#8f8f8f" />
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
             </View>:
-            <View style={styles.container} key={item.key}>
+            <View style={styles.container} >
                 <FontAwesome name="newspaper-o" size={40} color="#537eb8" />
                 <View>
                     <Text style={styles.text}>{item.data}</Text>
@@ -65,12 +70,12 @@ export default function NotificationCard({data}) {
                         <Entypo name="dots-three-vertical" size={14} color="#8f8f8f" />
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
-            </View> )}
-            </View>
-       </ScrollView>
+            </View> }
+       />
+       </View>
+    
     )
 }
-
 const styles = StyleSheet.create({
     container:{
         width:Dimensions.get("window").width,

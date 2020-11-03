@@ -5,11 +5,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
-export default function CardBottom() {
+export default function CardBottom({liked}) {
     const IconColor = "black"
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>console.log("Liked")}>
+            <TouchableOpacity onPress={liked}>
             <View style={styles.element}>
                 <AntDesign 
                     name="like2" 

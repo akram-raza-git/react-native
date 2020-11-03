@@ -1,11 +1,14 @@
 import React from 'react'
 import { StyleSheet, Text, View,TouchableOpacity, Image } from 'react-native'
-import { color } from 'react-native-reanimated'
+import { Entypo } from '@expo/vector-icons';
 
 export default function Card({item}) {
 
     return (
         <View style={styles.container}>
+        <View style={styles.crossed}>
+            <Entypo name="circle-with-cross" size={24} color="black" />
+        </View>
         {item.picture?<Image 
                 style={styles.image}
                 source={require(`../../../../assets/CardImg/avatar.jpg`)}
@@ -21,7 +24,7 @@ export default function Card({item}) {
 
 const styles = StyleSheet.create({
     container:{
-        height:200,
+      
         paddingVertical:10,
         width:180,
         marginBottom:10,
@@ -51,5 +54,10 @@ const styles = StyleSheet.create({
         alignSelf:"center",
         textAlign:"center",
         fontSize:13
+    },
+    crossed:{
+        position:'absolute',
+        right:0,
+        padding:12
     }
 })

@@ -13,14 +13,24 @@ export default function Postcard({data}) {
             data
         }
     }, [])
+    const likehandler = (key) => {
+            let newArray = datais.map((item)=>{
+                if (item._id===key){
+                    item.likes += 1
+                }
+                return item
+            })
+            setData(newArray)
+ 
+    }
     const like = "likes this"
     const comment = "commented on this"
     const curious = "is curious about this"
-    const click = <Button title="Click" onPress={()=>console.log("100000")}/>
+    
     return (
         <View style={styles.backStyle}>
         <FlatList data={datais} 
-        keyExtractor={item=>item.name}
+        keyExtractor={item=>item._id}
         renderItem={({item})=>(
                 item.like?<View style={styles.container}>
                         <Head name={item.name} emotion={like} />
@@ -29,7 +39,7 @@ export default function Postcard({data}) {
                                 profile = {item.profile}
                                 likes={item.likes} 
                                 comments={item.comments} />
-                        <CardBottom />
+                        <CardBottom liked={()=>likehandler(item._id)} />
                     </View>:item.curious? <View style={styles.container}>
                         <Head name={item.name} emotion={curious} />
                             <CardBody post={item.post} 
@@ -37,7 +47,7 @@ export default function Postcard({data}) {
                                 profile = {item.profile}
                                 likes={item.likes} 
                                 comments={item.comments} />
-                        <CardBottom />
+                        <CardBottom liked={()=>likehandler(item._id)} />
                     </View>:item.comment ? <View style={styles.container}>
                         <Head name={item.name} emotion={comment} />
                             <CardBody post={item.post} 
@@ -46,7 +56,7 @@ export default function Postcard({data}) {
                                 likes={item.likes} 
                                 comments={item.comments}
                             />
-                        <CardBottom />
+                        <CardBottom  liked={()=>likehandler(item._id)}/>
                     </View>:null)
         } />
         
