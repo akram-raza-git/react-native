@@ -34,10 +34,10 @@ export default function CardBody({post,likes,comments,profile,image}) {
             </View>
         </View>
             {post && More?<Text style={styles.postStyle}>{post}</Text>:
-                <Text>{truncate(post,135)}<Text style={{color:"#636363"}} 
-                                onPress={()=>setMore(true)}>see more </Text></Text>}
+                <Text style={styles.postStyle}>{truncate(post,135)}<Text style={{color:"#636363"}} 
+                                onPress={()=>setMore(true)}> see more </Text></Text>}
                           
-                {image?<Image style={styles.postImage}source={require('../../../assets/CardImg/pexelg.jpg')} />:null}
+                {image?<Image style={styles.postImage} source={image} />:null}
                
             <View style={styles.emoStyle}>
             <View style={{flexDirection:"row",alignItems:"center"}}>
@@ -52,11 +52,11 @@ export default function CardBody({post,likes,comments,profile,image}) {
 
 const styles = StyleSheet.create({
     container:{
-        paddingHorizontal:10,
         paddingTop:5,
         paddingBottom:5,
     },
     emoStyle:{
+        paddingHorizontal:10,
         flexDirection:"row",
         justifyContent:"space-between",
         // backgroundColor:"red"
@@ -67,12 +67,13 @@ const styles = StyleSheet.create({
         opacity:0.6,
     },
     postStyle:{
-        paddingHorizontal:5,
-       
+        paddingHorizontal:10,
+        
     },
     profileStyle:{
         flexDirection:"row",
-         paddingBottom:10,
+        paddingHorizontal:10,
+        paddingBottom:10,
     },
     profileText:{
         fontSize:11,
@@ -92,7 +93,8 @@ const styles = StyleSheet.create({
     },
     postImage:{
         height:500,
-        width:368
+        width:Dimensions.get("window").width,
+        marginVertical:10,
 
     }
 })

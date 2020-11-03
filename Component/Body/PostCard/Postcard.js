@@ -16,7 +16,7 @@ export default function Postcard({data}) {
     const like = "likes this"
     const comment = "commented on this"
     const curious = "is curious about this"
-     const click = <Button title="Click" onPress={()=>console.log("100000")}/>
+    const click = <Button title="Click" onPress={()=>console.log("100000")}/>
     return (
         <View style={styles.backStyle}>
         <FlatList data={datais} 

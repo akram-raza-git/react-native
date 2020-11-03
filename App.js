@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View,Dimensions } from 'react-native'
+import React,{useState} from 'react'
+import { StyleSheet, Text, View,Dimensions,TouchableOpacity,Image } from 'react-native'
 import SearchScreen from './Component/Search/SearchScreen'
 import Index from './Component/Body/index'
 import {NavigationContainer} from "@react-navigation/native"
@@ -16,12 +16,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const BottomTab = createBottomTabNavigator()
 export default function App() {
-  // const IconColour = "#7a7a7a"
-          return (
-  <View style={styles.appContainer}>
-          <SearchScreen />
+  
+
+  return (<View style={styles.appContainer}>
+            <SearchScreen />
           <NavigationContainer>
-            <BottomTab.Navigator>
+            <BottomTab.Navigator initialRouteName={Index}>
               <BottomTab.Screen name="Home" component={Index} options={{
                 tabBarLabel: 'Home',
                 tabBarIcon:({color,size})=>(
@@ -84,5 +84,7 @@ const styles = StyleSheet.create({
  appContainer:{
    height:Dimensions.get("window").height,
   marginTop:35,
- }
+ },
+
+
 })

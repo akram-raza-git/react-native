@@ -3,10 +3,15 @@ import { StyleSheet, Text, View } from 'react-native'
 
 export default function Post() {
     return (
-        <View>
+        <View style={styles.conatainer}>
             <Text>Post</Text>
         </View>
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    conatainer : {
+        position:"absolute",
+        top:0,
+    }
+})

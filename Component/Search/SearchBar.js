@@ -1,18 +1,25 @@
-import React from 'react'
+import React,{ useState} from 'react'
 import { StyleSheet, TextInput, Text, View ,Image, TouchableOpacity} from 'react-native'
 import { Feather } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import Content from '../SIdeDrawer/index'
+
+
 
 export default function home({value,inputReturn,submitItem}) {
+    const [open,setOpen] = useState(false)
+
+    
     return (<View style={styles.outerSearch}>
-                <TouchableOpacity onPress={()=>console.log("Profile pressed")}>
-                <Image 
-                    onPress={()=>console.log("Profile")}
-                    source={require("../../assets/download.png")}
-                    style={styles.profileImage}
-                    /> 
+                {open?<Content open={()=>setOpen(false)} />:null}
+                <TouchableOpacity  onPress={()=>setOpen(true)}>
+                    <Image 
+                        source={require("../../assets/download.png")}
+                        style={styles.profileImage}
+                        /> 
                 </TouchableOpacity>
+                   
                 <View style={styles.searchBar} >
                     <Feather 
                         name="search" 
