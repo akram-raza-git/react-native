@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, StyleSheet, Text, View, Image } from 'react-native'
+import { Button, StyleSheet, Text, View, Image,TouchableOpacity } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 
 export default function HighlightCard({head,day,content,profile,company,location,clicked}) {
@@ -9,9 +9,11 @@ export default function HighlightCard({head,day,content,profile,company,location
                 <View style={styles.dot}/>
                 <Text style={styles.headText}>{head}</Text>
                 <Text style={styles.day}>{day}</Text>
-                <Entypo name="cross" size={20} 
-                onPress={clicked}
-                style={styles.cross} color="black" />
+                <TouchableOpacity style={styles.cross} 
+                    onPress={clicked}>
+                    <Entypo name="cross" size={20} 
+                         color="black" />
+                </TouchableOpacity>
             </View>
             <View style={styles.content}>
                 <Text style={{color:"#000",}}>{content}.</Text>

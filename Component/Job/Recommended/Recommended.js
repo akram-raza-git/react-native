@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View,FlatList } from 'react-native'
-import Card from './RecommendedCard'
+import Rcard from './RecommendedCard'
 
 export default function Recommended({data}) {
     return (
@@ -10,7 +10,7 @@ export default function Recommended({data}) {
                 <FlatList data={data}
                     keyExtractor={item=>item.key}
                     scr
-                    renderItem={({item})=><Card 
+                    renderItem={({item})=><Rcard 
                                     profile={item.profile}
                                     company={item.company}
                                     location={item.location}
