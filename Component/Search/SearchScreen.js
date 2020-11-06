@@ -9,7 +9,7 @@ export default function SearchScreen() {
             <SearchBar value={item} 
                 inputReturn={(item)=>setItem(item)} 
                     submitItem={()=>console.log("Submitted")} />
-            {item?<Text style={{fontSize:20}}>{item}</Text>:null}
+
         </View>
     )
 }

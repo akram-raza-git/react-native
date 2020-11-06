@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,ScrollView, FlatList,Button } from 'react-native
 import CardBottom from "./CardBottom"
 import Head from './CardHead'
 import CardBody from './CardBody'
+import Status from '../Status/Status'
 export default function Postcard({data}) {
     const [datais,setData] = useState([])
     useEffect(() => {
@@ -23,15 +24,21 @@ export default function Postcard({data}) {
             setData(newArray)
  
     }
+    const scrollEventListener = () => {}
     const like = "likes this"
     const comment = "commented on this"
     const curious = "is curious about this"
     
     return (
         <View style={styles.backStyle}>
+        <ScrollView>
+        <Status />
+        <View>
         <FlatList data={datais} 
-        keyExtractor={item=>item._id}
-        renderItem={({item})=>(
+            onScroll={()=>console.log("Scroll")}
+            nestedScrollEnabled
+            keyExtractor={item=>item._id}
+            renderItem={({item})=>(
                 item.like?<View style={styles.container}>
                         <Head name={item.name} emotion={like} />
                             <CardBody post={item.post} 
@@ -59,8 +66,8 @@ export default function Postcard({data}) {
                         <CardBottom  liked={()=>likehandler(item._id)}/>
                     </View>:null)
         } />
-        
-        
+        </View>
+        </ScrollView>
         </View>
     )
 }

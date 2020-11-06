@@ -6,9 +6,10 @@ export default function Recommended({data}) {
     return (
         <View style={styles.container}>
             <Text style={styles.textHead}>Recommended for you </Text>
-           
+                <View>
                 <FlatList data={data}
                     keyExtractor={item=>item.key}
+                    nestedScrollEnabled
                     scr
                     renderItem={({item})=><Rcard 
                                     profile={item.profile}
@@ -18,6 +19,7 @@ export default function Recommended({data}) {
                                     apply={item.apply}
                                     promoted={item.promoted} />}
                     />
+                </View>
         </View>
     )
 }

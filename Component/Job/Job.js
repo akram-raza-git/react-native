@@ -47,10 +47,12 @@ const recommendedData = [
 export default function Job() {
     return (
         <View style={styles.container}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView 
+            nestedScrollEnabled
+            showsVerticalScrollIndicator={false}>
             <Highlight data={highLightData}/>
             <Recommended  data = {recommendedData}/>
-            </ScrollView>
+        </ScrollView>
         </View>
     )
 }

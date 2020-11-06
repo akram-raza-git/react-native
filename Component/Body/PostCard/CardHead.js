@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
+
 export default function CardHead({name,emotion}) {
     return (
         <View style={styles.container}>

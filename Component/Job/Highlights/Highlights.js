@@ -27,20 +27,21 @@ export default function Highlights({data}) {
                 </View>
             </View>
                 <View style={styles.card}>
-                <FlatList data={array} 
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item)=>item.key}
-                    renderItem={({item})=><HighlightCard 
-                        head = {item.resume} 
-                        day = {item.day}
-                        company={item.company}
-                        location={item.location}
-                        profile = {item.profile}
-                        content={item.content}
-                        clicked={()=>deleteHandler(item.key)}
-                        />
-                } />
+                    <FlatList data={array} 
+                        horizontal
+                        nestedScrollEnabled
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item)=>item.key}
+                        renderItem={({item})=><HighlightCard 
+                            head = {item.resume} 
+                            day = {item.day}
+                            company={item.company}
+                            location={item.location}
+                            profile = {item.profile}
+                            content={item.content}
+                            clicked={()=>deleteHandler(item.key)}
+                            />
+                    } />
                 </View>
         </View>
     )

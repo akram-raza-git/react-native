@@ -23,7 +23,7 @@ export default function home({value,inputReturn,submitItem}) {
                 <View style={styles.searchBar} >
                     <Feather 
                         name="search" 
-                        size={25} 
+                        size={20} 
                         style={styles.feature}
                         color="black" />
                     <TextInput 
@@ -46,13 +46,13 @@ export default function home({value,inputReturn,submitItem}) {
                         onPress={()=>console.log("Chat Pressed")}
                         name="chat" 
                         size={27} 
-                        color="white" />
+                        color="black" />
         </View>
     )
 }
 const styles = StyleSheet.create({
     searchBar:{
-        backgroundColor:"white",
+        backgroundColor:"#ccc",
         flexDirection:"row",
         height:30,
         flex:1,
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginHorizontal:10,
     },
     outerSearch:{
-        backgroundColor:"#0073B1",
+        // backgroundColor:"#0073B1",
         height:41,
         flexDirection:"row"
     },

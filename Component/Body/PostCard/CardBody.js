@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, View, FlatList,Image, Dimensions } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons,SimpleLineIcons } from '@expo/vector-icons';
+
 
 export default function CardBody({post,likes,comments,profile,image}) {
 
