@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         marginBottom:10,
         borderColor:"#ccc",
         borderWidth:1,
+        borderRadius:10
     },
     textButton:{
         borderWidth:1,
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
         paddingVertical:4,
         alignSelf:"center",
         marginTop:5,
+        borderRadius:30
     },
     image:{
         width:75,
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     crossed:{
         position:'absolute',
         right:0,
-        padding:12
+        padding:12,
+        opacity:.9
     }
 })

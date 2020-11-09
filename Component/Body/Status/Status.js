@@ -30,11 +30,11 @@ export default function Status() {
                 </View>
         <View>
         <FlatList data={StatusData}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            renderItem={({item})=><Story image={item.image}
-                        story = {stringChecker(item.story,10)}
-                        />
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                renderItem={({item})=><Story image={item.image}
+                            story = {stringChecker(item.story,10)}
+                            />
             }/>
         </View>
         </View>

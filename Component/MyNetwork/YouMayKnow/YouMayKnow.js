@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     },
     cardsStyle:{
         flexDirection:"row",
-        justifyContent:"space-between",
+        justifyContent:"space-around",
         flexWrap:"wrap"
     },
     headText:{

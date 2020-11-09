@@ -8,7 +8,6 @@ export default function Recommended({data}) {
             <Text style={styles.textHead}>Recommended for you </Text>
                 <View>
                 <FlatList data={data}
-                    keyExtractor={item=>item.key}
                     nestedScrollEnabled
                     scr
                     renderItem={({item})=><Rcard 

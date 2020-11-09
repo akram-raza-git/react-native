@@ -26,10 +26,14 @@ export default function HighlightCard({head,day,content,profile,company,location
                         <Text style={styles.faded}>{location}</Text>
                     </View>
                 </View>
-                <View style={styles.button}>
-                    <Button color="#0a5380"  
-                    title="EARN SKILL BADGES"/>
-                </View>
+                    <View style={styles.button}>
+                        <TouchableOpacity >
+                            <Text style={styles.buttonText}>EARN SKILL BADGES</Text>
+                        </TouchableOpacity>
+                    </View>
+                    {/* <Button color=""
+                    title=""/> */}
+
             </View>
         </View>
     )
@@ -43,6 +47,7 @@ const styles = StyleSheet.create({
         marginRight:15,
         height:230,
         marginBottom:10,
+        borderRadius:10
     },
     cardHead:{
         flexDirection:"row",
@@ -74,7 +79,10 @@ const styles = StyleSheet.create({
         
     },
     button:{
-        marginTop:29,
+        marginTop:30,
+        backgroundColor:"#0a5380",
+        marginHorizontal:10,
+        borderRadius:30
     },
     image:{
         width:50,
@@ -87,5 +95,11 @@ const styles = StyleSheet.create({
     faded:{
         color:"#666666",
         fontSize:12.5,
+    },
+    buttonText:{
+        alignSelf:"center",
+        paddingVertical:7,
+        color:"white"
     }
+
 })

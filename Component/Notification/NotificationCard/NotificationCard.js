@@ -122,5 +122,6 @@ const styles = StyleSheet.create({
         alignSelf:"flex-start",
         marginHorizontal:15,
         marginVertical:10,
+        borderRadius:40
     }
 })

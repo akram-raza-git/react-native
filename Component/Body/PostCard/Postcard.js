@@ -16,7 +16,7 @@ export default function Postcard({data}) {
     }, [])
     const likehandler = (key) => {
             let newArray = datais.map((item)=>{
-                if (item._id===key){
+                if (item.key===key){
                     item.likes += 1
                 }
                 return item
@@ -31,13 +31,12 @@ export default function Postcard({data}) {
     
     return (
         <View style={styles.backStyle}>
-        <ScrollView>
+        <ScrollView onScroll={()=>console.log()}>
         <Status />
         <View>
         <FlatList data={datais} 
-            onScroll={()=>console.log("Scroll")}
+            
             nestedScrollEnabled
-            keyExtractor={item=>item._id}
             renderItem={({item})=>(
                 item.like?<View style={styles.container}>
                         <Head name={item.name} emotion={like} />
@@ -46,7 +45,7 @@ export default function Postcard({data}) {
                                 profile = {item.profile}
                                 likes={item.likes} 
                                 comments={item.comments} />
-                        <CardBottom liked={()=>likehandler(item._id)} />
+                        <CardBottom liked={()=>likehandler(item.key)} />
                     </View>:item.curious? <View style={styles.container}>
                         <Head name={item.name} emotion={curious} />
                             <CardBody post={item.post} 
@@ -54,7 +53,7 @@ export default function Postcard({data}) {
                                 profile = {item.profile}
                                 likes={item.likes} 
                                 comments={item.comments} />
-                        <CardBottom liked={()=>likehandler(item._id)} />
+                        <CardBottom liked={()=>likehandler(item.key)} />
                     </View>:item.comment ? <View style={styles.container}>
                         <Head name={item.name} emotion={comment} />
                             <CardBody post={item.post} 
@@ -63,7 +62,7 @@ export default function Postcard({data}) {
                                 likes={item.likes} 
                                 comments={item.comments}
                             />
-                        <CardBottom  liked={()=>likehandler(item._id)}/>
+                        <CardBottom  liked={()=>likehandler(item.key)}/>
                     </View>:null)
         } />
         </View>

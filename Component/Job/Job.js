@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import Highlight from './Highlights/Highlights'
 import Recommended from './Recommended/Recommended'
-
+import axios from '../../Api/axios'
 const highLightData = [
     {key:"1",company:"Victorious Infotech Pvt. Ltd.",location:"sector 34 noida Uttar Pradesh",
         content:"Your resume has been downloaded. Earn a skill badge to stand out even more",
@@ -45,13 +45,27 @@ const recommendedData = [
                         ]
 
 export default function Job() {
+    const [recommended,setRecommended] = useState([])
+    useEffect(() => {
+        let data = null
+        axios.get("/")
+        .then(resp=>
+            {
+                data = resp
+                console.log(resp)})
+        .catch(error=>console.log(error))
+        return () => data
+    }, [])
     return (
         <View style={styles.container}>
         <ScrollView 
             nestedScrollEnabled
             showsVerticalScrollIndicator={false}>
+            <View>
+
             <Highlight data={highLightData}/>
             <Recommended  data = {recommendedData}/>
+            </View>
         </ScrollView>
         </View>
     )

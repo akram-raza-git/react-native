@@ -31,7 +31,6 @@ export default function Highlights({data}) {
                         horizontal
                         nestedScrollEnabled
                         showsHorizontalScrollIndicator={false}
-                        keyExtractor={(item)=>item.key}
                         renderItem={({item})=><HighlightCard 
                             head = {item.resume} 
                             day = {item.day}
